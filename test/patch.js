@@ -1,5 +1,6 @@
 'use strict';
 const ObjectID = require('mongodb').ObjectID;
+const Double = require('mongodb').Double;
 const should = require('chai').should();
 const expect = require('chai').expect;
 const iceworm_mongo = require(__dirname + '/../index.js');
@@ -17,13 +18,15 @@ describe("Patching", () => {
     });
     it("a number", () => {
       let result = iceworm_mongo.patchers.double(1);
-      result.should.equal(1);
-      expect(result).to.be.a('number');
+      (result instanceof Double).should.equal(true);
+      result.valueOf().should.equal(1);
+      expect(result.valueOf()).to.be.a('number');
     });
     it("a numeric string", () => {
       let result = iceworm_mongo.patchers.double("1.8");
-      result.should.equal(1.8);
-      expect(result).to.be.a('number');
+      (result instanceof Double).should.equal(true);
+      result.valueOf().should.equal(1.8);
+      expect(result.valueOf()).to.be.a('number');
     });
   });
 

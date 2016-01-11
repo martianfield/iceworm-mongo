@@ -1,4 +1,5 @@
 'use strict';
+const Double = require('mongodb').Double;
 
 module.exports = (obj) => {
   if(obj === null || obj === undefined) {
@@ -8,5 +9,5 @@ module.exports = (obj) => {
   if(isNaN(parsed)) {
     return undefined;
   }
-  return parsed;
+  return Double(parsed);
 }
