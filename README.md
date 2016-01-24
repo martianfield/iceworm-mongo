@@ -29,7 +29,7 @@ let obj = {
 
 var result = iceworm.evaluate(obj, schema);
 if(result.valid) {
-    console.log(result.obj); // output the patched object
+    console.log(result.obj); // output the projected object
 } else {
     console.log(result.errors);
 }
@@ -40,6 +40,6 @@ if(result.valid) {
 
 - validation of `objectid` expects a valid 24 byte hex string.
 
-## Patching
+## Projection
 
-- patching `objectid` expects a valid 24 byte hex string as the passed object. If this value is not valid, the patched value is set to `undefined`
+- projecting `objectid` expects a valid 24 byte hex string as the passed object. If this value is not valid, the projected value is set to `undefined`
